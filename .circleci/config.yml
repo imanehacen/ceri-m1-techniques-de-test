@@ -1,6 +1,9 @@
 orbs:
         maven: circleci/maven@1.3.0
 version: 2.1
+machine:
+    java:
+        version: 'oraclejdk8'
 build-deploy:
         jobs:
                 - build : 
