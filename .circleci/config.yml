@@ -8,7 +8,7 @@ machine:
 
 steps: 
         run : 
-                command: 'test'
+                command: 'clean test'
 
 build-deploy:
         jobs:
@@ -20,6 +20,6 @@ workflows:
         maven_test:
                 jobs:
                         - maven/test:
-                                command: '-X Verify'
+                                command: 'test'
 
                         
