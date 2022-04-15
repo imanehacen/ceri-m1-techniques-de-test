@@ -5,9 +5,11 @@ version: 2.1
 machine:
     java:
         version: 'oraclejdk8'
+
 steps: 
         run : 
-                command: 'mvn test'
+                command: mvn test
+
 build-deploy:
         jobs:
                 - build : 
