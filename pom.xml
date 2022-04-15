@@ -36,7 +36,7 @@
   </dependencies>
   
  <build>
-        
+        <defaultGoal>install</defaultGoal>
             <plugins>
                 <!-- Plugin responsable de la génération du fichier JAR -->
                 <plugin>
