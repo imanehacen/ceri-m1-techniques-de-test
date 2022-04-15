@@ -57,7 +57,7 @@
 							
 							</configuration>
 						</execution>
-			    <execution>3
+			    <execution>
 				    <id>integration-tests</id>
 				    <phase>integration-test</phase>
 				    <goals>
