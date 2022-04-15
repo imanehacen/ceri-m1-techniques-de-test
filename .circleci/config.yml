@@ -7,7 +7,7 @@ machine:
         version: 'oraclejdk8'
 
 steps: 
-        run :  test
+        run :  test 
         
 
 build-deploy:
