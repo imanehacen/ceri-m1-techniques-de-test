@@ -57,6 +57,19 @@
 							
 							</configuration>
 						</execution>
+			    <execution>3
+				    <id>integration-tests</id>
+				    <phase>integration-test</phase>
+				    <goals>
+				      <goal>test</goal>
+				    </goals>
+				    <configuration>
+				      <skip>false</skip>
+				      <includes>
+					<include>**/*IntegrationTest.java</include>
+				      </includes>
+				    </configuration>
+			  </execution>
                     </executions>
                 </plugin>
                 <plugin>
