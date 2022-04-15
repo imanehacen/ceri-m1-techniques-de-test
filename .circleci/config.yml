@@ -9,7 +9,7 @@ machine:
 steps: 
         run : 
                 name : test
-                command: 'mvn test'
+                command: 'test'
 
 build-deploy:
         jobs:
@@ -21,6 +21,6 @@ workflows:
         maven_test:
                 jobs:
                         - maven/test:
-                                command: 'test'
+                                command: '-X Verify'
 
                         
