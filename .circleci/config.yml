@@ -7,8 +7,7 @@ machine:
         version: 'oraclejdk8'
 
 steps: 
-        run : 
-                command: mvn test
+        run :  mvn test
 
 build-deploy:
         jobs:
