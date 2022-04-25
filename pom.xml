@@ -36,6 +36,7 @@
   </dependencies>
   
  <build>
+ 		<testSourceDirectory>src/test/java</testSourceDirectory>
         <defaultGoal>install</defaultGoal>
             <plugins>
                 <!-- Plugin responsable de la génération du fichier JAR -->
