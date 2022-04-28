@@ -11,22 +11,33 @@ import org.junit.Assert;
 
 public class IPokedexTest {
 	
+	
+	// classe que l'on veut tester 
 	IPokedex pokedex; 
 	
+	
+	/**
+	 * Les pokemons qui nous seront utile pour nos tests 
+	 */
 	 Pokemon aquali;
 	 Pokemon bulbizarre;
 	 List<Pokemon> pokemons; 
 	 
 	@Before
 	public void init() {
+		
 		//la classe que l'on veut mocker 
 		pokedex = Mockito.mock(IPokedex.class);
 		
+		// on initialise nos pokemons 
 		bulbizarre =  new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56.0);
         aquali = new Pokemon(133, "Aquali", 186, 186, 260, 2729, 202, 5000, 4, 100.0);
         
+        // on creee la liste qui nous sera utile pour nos tess 
         pokemons = new ArrayList<>();
         
+        
+        // on ajoute nos pokemons à la liste
         pokemons.add(bulbizarre);
         pokemons.add(aquali);
        
@@ -35,8 +46,11 @@ public class IPokedexTest {
 
 	@Test
 	public void voidSizeTest() {
+		
+		// on retourne la taille du tableau su on appelle pokedex size 
 		Mockito.doReturn(pokemons.size()).when(pokedex).size();	
 		
+		// on verifie que la taille renvoyer est bien à 2 
 		Assert.assertEquals(2, pokedex.size());
 	}
 	
@@ -85,6 +99,8 @@ public class IPokedexTest {
 	 @Test
     public void getPokemonsTest () {
         List<Pokemon> unmodifiableList = Collections.unmodifiableList(pokemons);
+        
+        // on retourne la liste unmodifiable lorsque l'on appel getPokemons 
         Mockito.doReturn(unmodifiableList).when(pokedex).getPokemons();
        
         
@@ -105,20 +121,32 @@ public class IPokedexTest {
 	 
 	 @Test
 	    public void getPokemonsSortedTest () {
+		 
+		 	/**
+		 	 * On crée nos différents comparators 
+		 	 */
 	        PokemonComparators name = PokemonComparators.NAME;
 	        PokemonComparators index = PokemonComparators.INDEX;
 	        PokemonComparators cp = PokemonComparators.CP;
-
+	        
+	        
+	        /**
+	         * On crée differentes liste selon le comparator que l'on utilise 
+	         */
 	        List<Pokemon> listPokemonSortedByName = new ArrayList<>(pokemons);
 	        listPokemonSortedByName.sort(name);
 	        
 	        List<Pokemon> listPokemonSortedByIndex = new ArrayList<>(pokemons);
 	        listPokemonSortedByIndex.sort(index);
 	        
-	        
 	        List<Pokemon> listPokemonSortedByCp = new ArrayList<>(pokemons);
 	        listPokemonSortedByCp.sort(cp);
-
+	        
+	        
+	        
+	        /**
+	         * on appelle la methode getPokemons prenant en argument le comparator 
+	         */
 	        Mockito.doReturn(Collections.unmodifiableList(listPokemonSortedByName)).when(pokedex).getPokemons(name);
 	        Mockito.doReturn(Collections.unmodifiableList(listPokemonSortedByIndex)).when(pokedex).getPokemons(index);
 	        Mockito.doReturn(Collections.unmodifiableList(listPokemonSortedByIndex)).when(pokedex).getPokemons(cp);

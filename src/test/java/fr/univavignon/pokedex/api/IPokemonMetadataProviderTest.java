@@ -11,16 +11,23 @@ import org.mockito.Mockito;
 
 public  class IPokemonMetadataProviderTest {
 	
-	
+	// classe à tester 
 	IPokemonMetadataProvider provider ;
 	
+	
+	/*
+	 * pokemon attendu 
+	 */
 	 PokemonMetadata aquali;
 	 PokemonMetadata bulbizarre;
 
 	
 	@Before
 	public void init() {
+		// on mock la classe que l'on veut utiliser 
 		provider = Mockito.mock(IPokemonMetadataProvider.class);
+		
+		// initialisation des pokemons 
 		bulbizarre = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
         aquali = new PokemonMetadata(133, "Aquali", 186, 186, 260);
 	}
