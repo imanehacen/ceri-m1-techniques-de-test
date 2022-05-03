@@ -12,7 +12,8 @@ steps:
         run:
                 steps: 
                 - uses: actions/checkout@master
-                - uses: codecov/codecov-action@v2
+                - uses: codecov/codecov-action@v2 
+                - codecov/upload
                 with:
                         files: ./coverage1.xml,./coverage2.xml # optional
                         flags: unittests # optional
