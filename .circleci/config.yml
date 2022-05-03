@@ -37,10 +37,7 @@ workflows:
                 jobs:
                         - maven/test:
                                 command: '-X verify'
-        upload-to-codecov:
-                jobs:
-                        - checkout
-                        - codecov/upload
+        
 
                        
                        
