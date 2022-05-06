@@ -28,6 +28,10 @@ jobs :
                 docker:
                         - image: cimg/openjdk:11.0
                 steps: 
+                        - checkout
+                        - run:
+                                name: Build
+                                command: mvn -B -DskipTests clean package
                         - run:
                                 name : test
                                 command : mvn test
@@ -43,13 +47,14 @@ build-deploy:
                                 branches:
                                         only : main
 workflows:
+        build :
+                jobs: 
+                        - build-and-test
         maven_test:
                 jobs:
                         - maven/test:
                                 command: '-X verify'
-        phase : 
-                jobs: 
-                        - build-and-test
+       
         
 
                        
