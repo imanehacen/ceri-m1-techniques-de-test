@@ -37,11 +37,7 @@ workflows:
         build :
                 jobs: 
                         - build-and-test
-        upload-to-codecov:
-                jobs:
-                - node/test:
-                        post-steps:
-                        - codecov/upload
+        
         maven_test:
                 jobs:
                         - maven/test:
