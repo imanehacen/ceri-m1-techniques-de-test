@@ -8,21 +8,7 @@ machine:
     java: 
         version: 'oraclejdk8'
 
-steps: 
 
-        run:
-                name : test
-                command : test
-                steps: 
-                        - uses: actions/checkout@master
-                        - uses: codecov/codecov-action@v2 
-                        - codecov/upload
-                with:
-                        files: ./coverage1.xml
-                        flags: unittests # optional
-                        name: codecov-umbrella # optional
-                        fail_ci_if_error: true # optional (default = false)
-                        verbose: true # optional (default = false)
 
 jobs : 
         build-and-test:
@@ -34,7 +20,7 @@ jobs :
                                 name: Build
                                 command: mvn -B -DskipTests clean package
                         - run:
-                                name : Test
+                                name : teste
                                 command : mvn test
                         - run:
                                 name: Code Coverage
