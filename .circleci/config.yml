@@ -20,7 +20,7 @@ jobs :
                                 name: Build
                                 command: mvn -B -DskipTests clean package
                         - run:
-                                name : teste
+                                name : Test
                                 command : mvn test
                         - run:
                                 name: Code Coverage
