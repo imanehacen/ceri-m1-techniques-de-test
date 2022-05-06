@@ -45,15 +45,21 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        
-        <reportSets>
-          <reportSet>
-            <reports>
-              <!-- select non-aggregate reports -->
-              <report>report</report>
-            </reports>
-          </reportSet>
-        </reportSets>
+        <version>0.8.7</version>
+    	<configuration>
+	        <execution>
+	            <goals>
+	                <goal>prepare-agent</goal>
+	            </goals>
+	        </execution>
+	        <execution>
+	            <id>report</id>
+	            <phase>test</phase>
+	            <goals>
+	                <goal>report</goal>
+	            </goals>
+	        </execution>
+    	</configuration>
       </plugin>
     </plugins>
   </reporting>
