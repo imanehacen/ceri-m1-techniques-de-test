@@ -11,12 +11,12 @@ L’idée est de stocker des informations sur des Pokémons, dans un conteneur q
 
 Une espèce de Pokémon est décrite par des métadonnées communes à chaque individu de l’espèce à savoir :
 
-      Un index numérique (allant de 0 à 150)
+Un index numérique (allant de 0 à 150)
       Un nom
       Un niveau d’attaque
       Un niveau de défense
       Un niveau d’endurance ou stamina
-      Ces informations sont représentées par la classe PokemonMetadata. Les métadonnées décrivent une espèce, alors qu’un individu est défini par la classe Pokemon, défini par les attributs suivants :
+Ces informations sont représentées par la classe PokemonMetadata. Les métadonnées décrivent une espèce, alors qu’un individu est défini par la classe Pokemon, défini par les attributs suivants :
 
       Un niveau de combat ou CP
       Un niveau de vie ou HP
@@ -24,7 +24,7 @@ Une espèce de Pokémon est décrite par des métadonnées communes à chaque in
       Un nombre de bonbon ou candy
       Un pourcentage de perfection
       Des métadonnées
-      Les métadonnées d’un individu ne doivent pas être confondues avec les métadonnées de l’espèce. En effet, les valeurs des niveaux d’attaque, de défense, ou d’endurance sont bornées entre 0 et 15 dans le cadre d’un individu. Le niveau pour une statistique donnée se calcule ainsi :
+Les métadonnées d’un individu ne doivent pas être confondues avec les métadonnées de l’espèce. En effet, les valeurs des niveaux d’attaque, de défense, ou d’endurance sont bornées entre 0 et 15 dans le cadre d’un individu. Le niveau pour une statistique donnée se calcule ainsi :
 
       Niveau de base de l’espèce + Niveau de l’individu
 
@@ -35,4 +35,4 @@ Description des interfaces de notre système :
         IPokedex est notre conteneur, qui étend les deux interfaces précédentes, qu’il fournit à travers le pattern "Décorateur".
         IPokedexFactory permet de créer une instance de IPokedex.
         Un IPokedex appartient à un PokemonTrainer, défini par un nom et une équipe.
-        Les PokemonTrainer sont créés à travers l’interface IPokemonTrainerFactory.
+         Les PokemonTrainer sont créés à travers l’interface IPokemonTrainerFactory.
