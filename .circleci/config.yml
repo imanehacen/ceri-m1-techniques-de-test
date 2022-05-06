@@ -23,8 +23,18 @@ steps:
                         fail_ci_if_error: true # optional (default = false)
                         verbose: true # optional (default = false)
 
-     
-         
+jobs : 
+        build-and-test:
+                docker:
+                        - image: cimg/openjdk:11.0
+                steps: 
+                        - run:
+                                name : test
+                                command : test
+                        - run:
+                                name: Code Coverage
+                                command: curl -Os https://uploader.codecov.io/latest/linux/codecov; chmod +x codecov; ./codecov
+
 
 build-deploy:
         jobs:
@@ -37,6 +47,9 @@ workflows:
                 jobs:
                         - maven/test:
                                 command: '-X verify'
+        phase : 
+                jobs: 
+                        - build-and-test
         
 
                        
