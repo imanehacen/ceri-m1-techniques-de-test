@@ -13,6 +13,10 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+   
   </properties>
 
   <dependencies>
@@ -45,6 +49,16 @@
   
  <build>
  		<testSourceDirectory>src/test/java</testSourceDirectory>
+ 		<directory>${project.basedir}/output</directory>
+ 		<pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.2.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <defaultGoal>install</defaultGoal>
             <plugins>
                 <!-- Plugin responsable de la génération du fichier JAR -->
@@ -69,14 +83,6 @@
 			   
                     </executions>
                 </plugin>
-                <plugin>
-		            <groupId>org.apache.maven.plugins</groupId>
-		            <artifactId>maven-compiler-plugin</artifactId>
-		            <configuration>
-		                <source>1.8</source>
-		                <target>1.8</target>
-		            </configuration>
-		        </plugin>
 		        <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
