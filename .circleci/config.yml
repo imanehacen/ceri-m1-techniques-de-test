@@ -29,7 +29,7 @@ jobs :
                                 name: Checkstyle
                                 command: mvn -B -DskipTests checkstyle:checkstyle       
                         - run:
-                                name: Change badge
+                                name: Changement badge
                                 command: |
                                         errors=$(grep -o "severity=\"error\"" output/checkstyle-result.xml | wc -l || true);
                                         if [ $errors -lt 1 ]
