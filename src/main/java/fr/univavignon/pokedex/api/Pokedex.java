@@ -48,7 +48,10 @@ public class Pokedex implements IPokedex {
 	@Override
 	public Pokemon getPokemon(int id) throws PokedexException {
 		// TODO Auto-generated method stub
-		return null;
+		if ( id >= 0 && id <= 150) {
+			return pokemons.get(id);
+		}
+		else throw new PokedexException("Index non valide "); 
 	}
 
 	@Override
