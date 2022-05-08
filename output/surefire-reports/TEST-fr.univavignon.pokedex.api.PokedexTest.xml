@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="fr.univavignon.pokedex.api.PokedexTest" time="0.044" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="fr.univavignon.pokedex.api.PokedexTest" time="0.036" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="17.0.2+8-LTS-86"/>
@@ -25,7 +25,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Users\imane\OneDrive\Documents\workspace-eclipse\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf12037006005788838182.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\imane\OneDrive\Documents\workspace-eclipse\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf7017125106054495462.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk-17.0.2\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk1.8.0_331\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\mingw64\bin;C:\Program Files\Git\cmd;C:\Program Files\ZeroC\Ice-3.7.7\bin;C:\Program Files\nodejs\;D:\Master\M1S2\Glasssfish\glassfish5\bin;C:\Program Files\Java\jdk-17.0.2\bin;D:\Master\M1S2\Glasssfish\glassfish5\glassfish\lib;C:\Program Files\Java\jdk1.8.0_331\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Users\imane\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\imane\AppData\Local\Programs\Python\Python310\;C:\Users\imane\AppData\Local\Microsoft\WindowsApps;C:\Users\imane\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\WebStorm 2021.3.2\bin;;C:\Users\imane\AppData\Local\GitHubDesktop\bin;C:\ProgramData\imane\GitHubDesktop\bin;C:\Users\imane\AppData\Roaming\npm;C:\Program Files\Java\jdk1.8.0_331\bin;;."/>
     <property name="jdk.debug" value="release"/>
@@ -57,9 +57,9 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="fr.univavignon.pokedex.api.PokedexTest" name="getPokemonsTest" time="0.039"/>
+  <testcase classname="fr.univavignon.pokedex.api.PokedexTest" name="getPokemonsTest" time="0.033"/>
   <testcase classname="fr.univavignon.pokedex.api.PokedexTest" name="getPokemonsSortedTest" time="0.001"/>
-  <testcase classname="fr.univavignon.pokedex.api.PokedexTest" name="getPokemonTest" time="0.003"/>
-  <testcase classname="fr.univavignon.pokedex.api.PokedexTest" name="voidSizeTest" time="0"/>
-  <testcase classname="fr.univavignon.pokedex.api.PokedexTest" name="addPokemonTest" time="0.001"/>
+  <testcase classname="fr.univavignon.pokedex.api.PokedexTest" name="getPokemonTest" time="0.001"/>
+  <testcase classname="fr.univavignon.pokedex.api.PokedexTest" name="voidSizeTest" time="0.001"/>
+  <testcase classname="fr.univavignon.pokedex.api.PokedexTest" name="addPokemonTest" time="0"/>
 </testsuite>
