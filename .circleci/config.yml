@@ -27,7 +27,36 @@ jobs :
                                 command: curl -Os https://uploader.codecov.io/latest/linux/codecov; chmod +x codecov; ./codecov
                         - run:
                                 name: Checkstyle
-                                command: mvn -B -DskipTests checkstyle:checkstyle
+                                command: mvn -B -DskipTests checkstyle:checkstyle       
+                        - run:
+                                name: Change badge
+                                command: |
+                                        errors=$(grep -o "severity=\"error\"" output/checkstyle-result.xml | wc -l || true);
+                                        if [ $errors -lt 1 ]
+                                        then
+                                                curl https://badgen.net/badge/checkstyle/$errors%20Errors/green -o badge.svg;
+                                        elif [ $errors -lt 20 ]
+                                                then
+                                                curl https://badgen.net/badge/checkstyle/$errors%20Errors/yellow -o badge.svg;
+                                                else
+                                                curl https://badgen.net/badge/checkstyle/$errors%20Errors/red -o badge.svg;
+                                        fi;
+                                        echo '. as $file
+                                                | $json
+                                                | (.files."badge.svg".content= $file + "\n" + .content)' > program.jq;             
+                                        echo '{"description" : "Badge checkstyle",
+                                                "files": {
+                                                        "badge.svg": {
+                                                        "content": ""
+                                                        }
+                                                }
+                                        }' > curl.json;
+                                        jq -R -s --argfile json curl.json -f program.jq badge.svg > content.json;
+                                        curl -X PATCH -H "Accept: application/vnd.github.v3+json" \
+                                        -u $GIT_NAME:$GIT_TOKEN \
+                                        --data-binary "@content.json" \
+                                        https://gist.github.com/imanehacen/c84091531d54215b9cddbe395e1fd18e
+
 
 
 build-deploy:
