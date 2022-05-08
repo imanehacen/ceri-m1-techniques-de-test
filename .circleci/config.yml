@@ -25,6 +25,9 @@ jobs :
                         - run:
                                 name: Code Coverage
                                 command: curl -Os https://uploader.codecov.io/latest/linux/codecov; chmod +x codecov; ./codecov
+                        - run:
+                                name: Checkstyle
+                                command: mvn -B -DskipTests checkstyle:checkstyle
 
 
 build-deploy:
