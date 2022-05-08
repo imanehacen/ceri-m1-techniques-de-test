@@ -55,7 +55,7 @@ jobs :
                                         curl -X PATCH -H "Accept: application/vnd.github.v3+json" \
                                         -u $GIT_NAME:$GIT_TOKEN \
                                         --data-binary "@content.json" \
-                                        https://api.github.com/gists/imanehacen
+                                        https://api.github.com/gists/72104285
 
 
 
