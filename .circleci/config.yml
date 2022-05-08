@@ -43,7 +43,7 @@ jobs :
                                         fi;
                                         echo '. as $file
                                                 | $json
-                                                | (.files."badge.svg".content= $file + "\n" + .content)' > program.jq;             
+                                                | (.files."badge.svg".content= $file + "\n" + .content)' > methods.jq;             
                                         echo '{"description" : "Badge checkstyle",
                                                 "files": {
                                                         "badge.svg": {
@@ -51,7 +51,7 @@ jobs :
                                                         }
                                                 }
                                         }' > curl.json;
-                                        jq -R -s --argfile json curl.json -f program.jq badge.svg > content.json;
+                                        jq -R -s --argfile json curl.json -f methods.jq badge.svg > content.json;
                                         curl -X PATCH -H "Accept: application/vnd.github.v3+json" \
                                         -u $GIT_NAME:$GIT_TOKEN \
                                         --data-binary "@content.json" \
