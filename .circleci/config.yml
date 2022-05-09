@@ -27,60 +27,38 @@ jobs :
                                 command : mvn -DskipTests checkstyle:checkstyle   
                         - codecov/upload:
                                 file: /target/site/jacoco/jacoco.xml
-                      
-                     
-                      
+                        - run:
+                                name: Generate javadoc
+                                command: mvn -B -DskipTests javadoc:javadoc
 
-
-        docs:
-                docker:
-                        - image: cimg/base:2021.04
-                steps:
-                # Checkout the code as the first step.
-                - checkout
-                # Use mvn clean and package as the standard maven build phase
-                - run:
-                        name: install1
-                        command: sudo add-apt-repository ppa:openjdk-r/ppa
-                - run:
-                        name: install2
-                        command: sudo apt-get update
-                - run:
-                        name: install3
-                        command: sudo apt-get install openjdk-11-jdk-headless -y
-                - run:
-                        name: Build-docs
-                        command: javadoc src/main/java/fr/univavignon/pokedex/api/* -d docs
-                - persist_to_workspace:
-                        root: .
-                        paths: docs
-                        
+                        - persist_to_workspace:
+                                root: output/site/
+                                paths: apidocs
 
         docs-deploy:
-                docker:
-                - image: node:8.10.0
-                steps:
-                - checkout
-                - attach_workspace:
-                        at: docs/_build
-                - run:
-                        name: Disable jekyll builds
-                        command: touch docs/_build/html/.nojekyll
-                - run:
-                        name: Install and configure dependencies
-                        command: |
-                                npm install -g --silent gh-pages@2.0.1
-                                git config user.email "imanehacen@outlook.fr"
-                                git config user.name "imanehacen"
-                - add_ssh_keys:
-                        fingerprints:
-                        - "a5:f4:f5:dc:64:87:93:fb:81:13:8d:b0:37:87:85:ca"
-                - run:
-                        name: Deploy docs to gh-pages branch
-                        command: gh-pages --dotfiles --message "[skip ci] Updates" --dist docs/_build/html
+                        docker:
+                                - image: node:8.10.0
+                        steps:
+                                - checkout
+                                - attach_workspace:
+                                        at: docs/
+                                - add_ssh_keys:
+                                        fingerprints:
+                                        - "a5:f4:f5:dc:64:87:93:fb:81:13:8d:b0:37:87:85:ca"
+                                - run:
+                                        name: Install and configure dependencies
+                                        command: |
+                                                npm install -g --silent gh-pages@2.0.1
+                                                git config user.email "imanehacen@outlook.fr"
+                                                git config user.name "imanehacen"
+                                - run:
+                                        name: Deploy docs to gh-pages branch
+                                        command: gh-pages --dotfiles --message "[skip ci] Updates" --dist docs/apidocs/
 
-
-       
+                                        
+                                        
+                                       
+                                                
 
 
 
@@ -94,16 +72,11 @@ workflows:
         build :
                 jobs: 
                         - build-and-test
-                        - docs:
-                                requires:
-                                        - build-and-test
-                                filters:
-                                        branches:
-                                                only: master
+                       
                         - docs-deploy:
                                 requires:
                                         - build-and-test
-                                        - docs
+                                        
                                 filters:
                                         branches:
                                                 only: master
