@@ -27,6 +27,13 @@ jobs :
                                 command : mvn -DskipTests checkstyle:checkstyle   
                         - codecov/upload:
                                 file: /target/site/jacoco/jacoco.xml
+                        - run:
+                                name: Generate javadoc
+                                command: mvn -B -DskipTests javadoc:javadoc
+
+                        - persist_to_workspace:
+                                root: output/site/
+                                paths: apidocs
                       
 
 
@@ -73,7 +80,7 @@ jobs :
                         - "a5:f4:f5:dc:64:87:93:fb:81:13:8d:b0:37:87:85:ca"
                 - run:
                         name: Deploy docs to gh-pages branch
-                        command: gh-pages --dist docs 
+                        command: gh-pages --dotfiles --message "[skip ci] Updates" --dist docs/apidocs/
 
 
 build-deploy:
