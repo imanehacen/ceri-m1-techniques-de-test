@@ -48,7 +48,7 @@
  <build>
   		<sourceDirectory>src/main/java</sourceDirectory>
  		<testSourceDirectory>src/test/java</testSourceDirectory>
-        <defaultGoal>install</defaultGoal>
+        <defaultGoal>test</defaultGoal>
             <plugins>
                 <!-- Plugin responsable de la génération du fichier JAR -->
                 <plugin>
