@@ -21,12 +21,13 @@ jobs :
                                 command: mvn -B -DskipTests clean package
                         - run:
                                 name : Test
-                                command : mvn test
-                        - run:
-                                name: Checkstyle
-                                command: mvn -B -DskipTests checkstyle:checkstyle       
+                                command : mvn test 
                         - codecov/upload:
                                 file: /target/site/jacoco/jacoco.xml
+                        - run:
+                                name: Checkstyle
+                                command: mvn -B -DskipTests checkstyle:checkstyle      
+                       
 
 
 
