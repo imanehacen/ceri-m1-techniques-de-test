@@ -24,7 +24,7 @@ jobs :
                                 command : mvn test 
                         - run:
                                 name: CheckStyle
-                                command : mvn checkstyle:checkstyle   
+                                command : mvn -DskipTests checkstyle:checkstyle   
                         - codecov/upload:
                                 file: /target/site/jacoco/jacoco.xml
                       
