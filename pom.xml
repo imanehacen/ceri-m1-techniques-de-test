@@ -51,7 +51,7 @@
  		<testSourceDirectory>src/test/java</testSourceDirectory>
         <defaultGoal>test</defaultGoal>
             <plugins>
-                <!-- Plugin responsable de la génération du fichier JAR -->
+                <!-- Plugin responsable de la génération du fichier JAR 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
@@ -72,7 +72,7 @@
 						</execution>
 			   
                     </executions>
-                </plugin>
+                </plugin>-->
                 <plugin>
 		            <groupId>org.apache.maven.plugins</groupId>
 		            <artifactId>maven-compiler-plugin</artifactId>
