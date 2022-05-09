@@ -75,7 +75,7 @@ jobs :
                         - "a5:f4:f5:dc:64:87:93:fb:81:13:8d:b0:37:87:85:ca"
                 - run:
                         name: Deploy docs to gh-pages branch
-                        command: gh-pages --dotfiles --message "[skip ci] Updates" --dist docs/apidocs/
+                        command: gh-pages --dotfiles --message "[skip ci] Updates" --dist docs/
 
 
 build-deploy:
