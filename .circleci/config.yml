@@ -70,7 +70,7 @@ jobs :
                                 git config user.name "imanehacen"
                 - add_ssh_keys:
                         fingerprints:
-                        - "fa:f2:10:29:b4:0f:89:e3:07:18:8e:92:0f:c5:6f:02"
+                        - "a5:f4:f5:dc:64:87:93:fb:81:13:8d:b0:37:87:85:ca"
                 - run:
                         name: Deploy docs to gh-pages branch
                         command: gh-pages --dist docs
