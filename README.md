@@ -1,7 +1,6 @@
 [![codecov](https://codecov.io/gh/imanehacen/ceri-m1-techniques-de-test/branch/master/graph/badge.svg?token=AEOUST68QF)](https://codecov.io/gh/imanehacen/ceri-m1-techniques-de-test)
 [![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
-[![checkstyle](https://gist.githubusercontent.com/imanehacen/2f5cbd5dde9c8c1e4fa78710184949ed/raw/badge.svg)](https://checkstyle.sourceforge.io/)
-
+![Checkstyle](target/site/badges/checkstyle-result.svg)
 
 Imane HACEN GRP1
 
