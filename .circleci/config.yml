@@ -73,7 +73,7 @@ jobs :
                         - "a5:f4:f5:dc:64:87:93:fb:81:13:8d:b0:37:87:85:ca"
                 - run:
                         name: Deploy docs to gh-pages branch
-                        command: gh-pages --dist docs
+                        command: gh-pages --dist docs 
 
 
 build-deploy:
