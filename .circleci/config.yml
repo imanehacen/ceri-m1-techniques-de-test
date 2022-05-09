@@ -30,6 +30,50 @@ jobs :
                       
 
 
+docs:
+    docker:
+      - image: cimg/base:2021.04
+    steps:
+      # Checkout the code as the first step.
+      - checkout
+      # Use mvn clean and package as the standard maven build phase
+      - run:
+          name: install1
+          command: sudo add-apt-repository ppa:openjdk-r/ppa
+      - run:
+          name: install2
+          command: sudo apt-get update
+      - run:
+          name: install3
+          command: sudo apt-get install openjdk-11-jdk-headless -y
+      - run:
+          name: Build-docs
+          command: javadoc src/main/java/fr/univavignon/pokedex/api/* -d docs
+      - persist_to_workspace:
+          root: .
+          paths: docs
+
+docs-deploy:
+    docker:
+      - image: node:8.10.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: docs
+
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "imanehacen@outlook.fr"
+            git config user.name "imanehacen"
+      - add_ssh_keys:
+          fingerprints:
+            - "fa:f2:10:29:b4:0f:89:e3:07:18:8e:92:0f:c5:6f:02"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: gh-pages --dist docs
+
 
 build-deploy:
         jobs:
@@ -41,6 +85,19 @@ workflows:
         build :
                 jobs: 
                         - build-and-test
+                        - docs:
+                                requires:
+                                        - build-and-test
+                                filters:
+                                        branches:
+                                                only: master
+                        - docs-deploy:
+                                requires:
+                                        - build-and-test
+                                        - docs
+                                filters:
+                                        branches:
+                                                only: master
         
         maven_test:
                 jobs:
