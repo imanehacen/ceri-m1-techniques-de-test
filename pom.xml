@@ -107,26 +107,7 @@
             </plugin>
          
          
-           <!-- Generate checkstyle badge. -->
-            <plugin>
-                <groupId>com.github.bordertech.buildtools</groupId>
-                <artifactId>badger</artifactId>
-                <version>1.0.0</version>
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>badges</goal>
-                        </goals>
-                        <configuration>
-                            <outputDir>target/site/badges</outputDir>
-                            <inputFiles>
-                                <inputFile>target/checkstyle-result.xml</inputFile>
-                            </inputFiles>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+           
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -144,6 +125,26 @@
                         <goals>
                             <goal>checkstyle</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Generate checkstyle badge. -->
+            <plugin>
+                <groupId>com.github.bordertech.buildtools</groupId>
+                <artifactId>badger</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>badges</goal>
+                        </goals>
+                        <configuration>
+                            <outputDir>target/site/badges</outputDir>
+                            <inputFiles>
+                                <inputFile>target/checkstyle-result.xml</inputFile>
+                            </inputFiles>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
