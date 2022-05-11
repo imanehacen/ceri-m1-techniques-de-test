@@ -5,6 +5,10 @@
 Imane HACEN GRP1
 
 
+La javadoc est disponible sur [Ce lien](https://imanehacen.github.io/ceri-m1-techniques-de-test/fr/univavignon/pokedex/api/package-summary.html)
+
+
+
 Le projet contient une application permettant d'effectuer des parties de jeux de Pokemon.
 
 L’idée est de stocker des informations sur des Pokémons, dans un conteneur qu’est le Pokédex. Dans le cadre de ce TP nous nous contenterons de la première génération, soit 151 espèces.
