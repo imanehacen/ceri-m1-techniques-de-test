@@ -32,7 +32,7 @@ jobs :
                                 command: mvn -B -DskipTests javadoc:javadoc
 
                         - persist_to_workspace:
-                                root: output/site/
+                                root: target/site/
                                 paths: apidocs
 
         docs-deploy:
