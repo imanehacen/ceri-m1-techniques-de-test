@@ -27,7 +27,38 @@ jobs :
                                 command : mvn -DskipTests checkstyle:checkstyle   
                         - codecov/upload:
                                 file: /target/site/jacoco/jacoco.xml
-                      
+                        - run:
+                                name: Generate javadoc
+                                command: mvn -B -DskipTests javadoc:javadoc
+
+                        - persist_to_workspace:
+                                root: output/site/
+                                paths: apidocs
+
+        docs-deploy:
+                        docker:
+                                - image: node:8.10.0
+                        steps:
+                                - checkout
+                                - attach_workspace:
+                                        at: docs/
+                                - add_ssh_keys:
+                                        fingerprints:
+                                        - "a5:f4:f5:dc:64:87:93:fb:81:13:8d:b0:37:87:85:ca"
+                                - run:
+                                        name: Install and configure dependencies
+                                        command: |
+                                                npm install -g --silent gh-pages@2.0.1
+                                                git config user.email "imanehacen@outlook.fr"
+                                                git config user.name "imanehacen"
+                                - run:
+                                        name: Deploy docs to gh-pages branch
+                                        command: gh-pages --dotfiles --message "[skip ci] Updates" --dist docs/apidocs/
+
+                                        
+                                        
+                                       
+                                                
 
 
 
@@ -41,12 +72,21 @@ workflows:
         build :
                 jobs: 
                         - build-and-test
+                       
+                        - docs-deploy:
+                                requires:
+                                        - build-and-test
+                                        
+                                filters:
+                                        branches:
+                                                only: master
+       
         
         maven_test:
                 jobs:
                         - maven/test:
                                 command: '-X verify'
-       
+                        
         
 
                        
