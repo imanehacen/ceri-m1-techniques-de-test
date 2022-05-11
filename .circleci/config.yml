@@ -53,7 +53,7 @@ jobs :
                                                 git config user.name "imanehacen"
                                 - run:
                                         name: Deploy docs to gh-pages branch
-                                        command: gh-pages --dotfiles --message "[skip ci] Updates" --dist docs/apidocs/
+                                        command: gh-pages  --dist docs/apidocs/
 
                                         
                                         
