@@ -1,0 +1,14 @@
+Lors du test de la classe RocketPokemonFactory, 
+j'ai pu observer plusiseurs éléments: 
+
+- D'une part, on peut voir que le test de getIV ne passe pas, cela car RocketPokemonFactory inscrit de maniere brute cette iv ( =1  ou =0) , 
+or, cette derniere doit être calculer, elle ne correspond donc pas à celle fournit par le TP3 pour aquali ou bulbizarre par exemple.
+Ce qui signifie que les IV sont mal gérées.
+
+- D'autre part, on peut voir que les index ne sont pas vérifiés.
+Nous ne sommes pas supposé avoir d'index inferieur à 0, et superieur à 150.
+Cependant, ici on a un map avec un pokemon à l'index -1 dans la classe RocketPokemonFactory, et aucune exception n'est lancé lorsque l'on veut créer un pokemon à l'index négatif et 
+superieur à 150.
+
+- Au debut de l'integration, RocketPokemonFactory, ne passe pas les tests.
+- on peut également trouvé de nouvelle erreur liés aux checkstyle.
